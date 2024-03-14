@@ -72,12 +72,7 @@ class Admin_Form
         $h1Homepage = get_option('h1_homepage');
         $descriptionHomepage = get_option('description_homepage');
         $topCategory = get_option('top_category_homepage');
-        if($topCategory) {
-            $arrTopCategory = json_decode(json_encode(json_decode($topCategory)), true);
-        } else {
-            $arrTopCategory = array();
-        }
-        
+        $arrTopCategory = json_decode(json_encode(json_decode($topCategory)), true);
         $nonce = wp_create_nonce("get_game_nonce");
         $link = admin_url('admin-ajax.php');
         $categories = get_categories();
