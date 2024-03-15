@@ -697,7 +697,12 @@ span.activity,.widget_display_replies li div,.widget_display_topics li div,.post
   
   .list-top-cate {
 	display: flex;
-	margin-top: 20px;
+	flex-wrap: wrap;
+  }
+
+  .list-top-cate a {
+	margin-top: 10px;
+	margin-left: 10px;
   }
   
   .in-list-top-cate {

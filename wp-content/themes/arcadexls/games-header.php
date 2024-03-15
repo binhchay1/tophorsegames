@@ -101,24 +101,25 @@
     ?>
     <div class="top-cate-homepage">
       <h2 style="font-size: 20px; font-weight: bold; color: #fff">Top games</h2>
-      <div class="list-top-cate">
+      <ul class="pstgms lstli" style="margin-top: 20px;">
         <?php foreach ($listTopGame as $post_id) {
           $img_url = get_post_meta($post_id, 'mabp_thumbnail_url');
         ?>
+          <li class="post">
+            <article class="games">
+              <a href="<?php get_permalink($post_id) ?>" data-hasqtip="27" oldtitle="<?php echo get_the_title($post_id) ?>" title="">
+                <div class="thumb">
+                  <div class="play">
+                    <span class="icon icon-link"></span>
+                  </div>
 
-          <article class="games" style="margin-left: 30px">
-            <a href="<?php get_permalink($post_id) ?>" data-hasqtip="27" oldtitle="<?php echo get_the_title($post_id) ?>" title="">
-              <div class="thumb">
-                <div class="play">
-                  <span class="icon icon-link"></span>
+                  <img src="<?php echo $img_url[0] ?>" width="100" height="100" alt="<?php echo get_the_title($post_id) ?>">
                 </div>
-
-                <img src="<?php echo $img_url[0] ?>" width="100" height="100" alt="<?php echo get_the_title($post_id) ?>">
-              </div>
-            </a>
-          </article>
+              </a>
+            </article>
+          </li>
         <?php } ?>
-      </div>
+      </ul>
     </div>
   <?php } else { ?>
     <?php $args = array(
@@ -133,24 +134,26 @@
     ?>
     <div class="top-cate-homepage">
       <h2 style="font-size: 20px; font-weight: bold; color: #fff">Top games</h2>
-      <div class="list-top-cate">
+      <ul class="pstgms lstli" style="margin-top: 20px;">
         <?php foreach ($query->posts as $post) {
           $img_url = get_post_meta($post->ID, 'mabp_thumbnail_url');
         ?>
+          <li class="post">
+            <article class="games" style="margin-left: 30px">
+              <a href="<?php get_permalink($post->ID) ?>" data-hasqtip="27" oldtitle="<?php echo $post->post_title ?>" title="">
+                <div class="thumb">
+                  <div class="play">
+                    <span class="icon icon-link"></span>
+                  </div>
 
-          <article class="games" style="margin-left: 30px">
-            <a href="<?php get_permalink($post->ID) ?>" data-hasqtip="27" oldtitle="<?php echo $post->post_title ?>" title="">
-              <div class="thumb">
-                <div class="play">
-                  <span class="icon icon-link"></span>
+                  <img src="<?php echo $img_url[0] ?>" width="100" height="100" alt="<?php echo $post->post_title ?>">
                 </div>
+              </a>
+            </article>
+          </li>
 
-                <img src="<?php echo $img_url[0] ?>" width="100" height="100" alt="<?php echo $post->post_title ?>">
-              </div>
-            </a>
-          </article>
         <?php } ?>
-      </div>
+      </ul>
     </div>
   <?php } ?>
 
@@ -196,6 +199,6 @@
   <?php echo arcadexls_breadcumb(); ?>
 
   <div class="title bg bgco1 rnd5">
-    <h1><?php echo single_cat_title("", false); ?></h1>
+    <h2><?php echo single_cat_title("", false); ?></h2>
   </div>
 <?php } ?>
